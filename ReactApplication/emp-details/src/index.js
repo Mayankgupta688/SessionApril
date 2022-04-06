@@ -1,15 +1,10 @@
 import ReactDOM from "react-dom";
-import Component from "./components/InterpolateComponent";
-
-var employee = {
-    userName: "Mayank",
-    userAge: 20
-}
+import Component from "./components/EmployeeListEventObjectComponent";
 
 ReactDOM.render((
-    <div>
-        <Component employee={employee} ></Component>
-    </div>
+    <>
+        <Component></Component>
+    </>
 ), document.getElementById("root"));
 
 
