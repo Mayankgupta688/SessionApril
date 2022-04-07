@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Component from "./components/EmployeeListEventObjectComponent";
+import Component from "./classBased/TimerComponent";
 
 ReactDOM.render((
     <>

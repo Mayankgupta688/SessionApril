@@ -1,7 +1,8 @@
 import React from "react";
-import "../styles/headers.css";
+import "../styles/headers.css"; 
 
 export default function EmployeeListEventObjectComponent() {
+    
     var employeeList = [
         {"id":"26","createdAt":"2019-07-09T18:08:17.841Z","name":"Mayank Metz","avatar":"https://tse3.mm.bing.net/th?id=OIP.snBqTc38-h2IJPHC7UzvXgHaE8&pid=Api&P=0&w=249&h=166"},
         {"id":"27","createdAt":"2019-07-09T20:32:28.258Z","name":"Anshul Windler PhD","avatar":"https://tse3.mm.bing.net/th?id=OIP.snBqTc38-h2IJPHC7UzvXgHaE8&pid=Api&P=0&w=249&h=166"},
@@ -20,13 +21,12 @@ export default function EmployeeListEventObjectComponent() {
     }
 
     function alertUser(event) {
-        debugger;
         alert("Employee Clicked is: " + event.target.dataset.username);
         alert("Employee Clicked is: " + event.target.dataset.userid);
     }
     
     return (
-        <React.Fragment>
+        <>
             {employeeList.map(function(employee) {
                 return (
                     <React.Fragment>
@@ -41,6 +41,6 @@ export default function EmployeeListEventObjectComponent() {
                     </React.Fragment>
                 )
             })}
-        </React.Fragment>
+        </>
     )
 }
