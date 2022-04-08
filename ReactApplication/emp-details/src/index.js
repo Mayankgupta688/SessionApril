@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Component from "./classBased/TimerComponent";
+import Component from "./stockInfo/StockListComponent";
 
 ReactDOM.render((
     <>

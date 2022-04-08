@@ -4,12 +4,26 @@ export default class TimerComponent extends React.Component {
     constructor() {
         super();
         this.state = {
-            counter: this.getDate()
+            counter: this.getDate(),
+            counterData: 0
         }
 
         setInterval(() => {
             this.setState({
-                counter: this.getDate()
+                counter: this.getDate(),
+                counterData: 0
+            })
+
+            for(var i = 0; i < 100; i++) {
+                this.setState({
+                    counter: this.getDate(),
+                    counterData: i
+                })
+            }
+
+            this.setState({
+                counter: this.getDate(),
+                counterData: 0
             })
         }, 1000);
     }
@@ -22,6 +36,7 @@ export default class TimerComponent extends React.Component {
         return (
             <>
                 <h1>Current Time is: {this.state.counter}</h1>
+                <h2>{this.state.counterData}</h2>
                 <ShowCounterAgain counter={this.state.counter}></ShowCounterAgain>
             </>
         )
