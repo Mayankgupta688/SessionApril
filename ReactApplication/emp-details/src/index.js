@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Component from "./stockInfo/StockListComponent";
+import Component from "./employeeHooksComponents/EmployeeComponent";
 
 ReactDOM.render((
     <>
