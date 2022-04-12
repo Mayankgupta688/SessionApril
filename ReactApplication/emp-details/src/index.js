@@ -1,10 +1,11 @@
 import ReactDOM from "react-dom";
-import Component from "./employeeHooksComponents/EmployeeComponent";
+import { BrowserRouter } from "react-router-dom";
+import Component from "./singlePageArchitecture/MainComponent";
 
 ReactDOM.render((
-    <>
+    <BrowserRouter>
         <Component></Component>
-    </>
+    </BrowserRouter>
 ), document.getElementById("root"));
 
 
