@@ -1,4 +1,16 @@
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch, Prompt } from "react-router-dom";
+
+function WrapperLink(props) {
+    debugger;
+
+    function handleClick() {
+        console.log("Link Changed...");
+    }
+
+    console.dir(props)
+
+    return <Link onClick={handleClick} {...props}>{props.children}</Link>
+}
 
 export default function ContentComponent() {
     return (
@@ -8,10 +20,9 @@ export default function ContentComponent() {
                 <Link to="/home" style={{marginRight: "10px"}}>Home</Link>
 
                 <Link to="/home/mayank/12/developer?q=10" style={{marginRight: "10px"}}>Home Other</Link>
-
-
                 <Link to="/help" style={{marginRight: "10px"}}>Help</Link>
-                <Link to="/about" style={{marginRight: "10px"}}>About</Link>
+
+                <WrapperLink to="/about" style={{marginRight: "10px"}}>About</WrapperLink>
             </nav>
 
             <h1>This is Content Component</h1>
@@ -20,8 +31,7 @@ export default function ContentComponent() {
                 <Switch>
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/home/:name/:id/:designation" component={Home}></Route>
-                    <Route exact path="/help/:someid" component={HelpUpdated}></Route>
-                    <Route exact path="/help/XYZ" component={Help}></Route>
+                    <Route exact path="/help/:someid" render={() => <Help userName="asdfajshd" userage="dsjfdjs" />}></Route>
                     <Route exact path="/about" component={About}></Route>
                 </Switch>
             </div>
@@ -35,9 +45,12 @@ function Home(props) {
     function updateUrl(whereToRedirect) {
         props.history.push(whereToRedirect)
     }
+
+    var allowRedirect = false;
     
     return (
         <>
+            <Prompt when={allowRedirect === false} message="Cannot Redirect"  />
             <h1>This is Home Page {props.match.params.name}</h1>
             <input type="button" value="Go to Help Page" onClick={() => updateUrl("/help")} />
             <input type="button" value="Go to About Page" onClick={() => updateUrl("/about")} />
@@ -61,7 +74,8 @@ function Sample() {
     return <h2>This is Sample Component</h2>
 }
 
-function Help() {
+function Help(props) {
+    debugger;
     return <h2>This is Help</h2>
 }
 
