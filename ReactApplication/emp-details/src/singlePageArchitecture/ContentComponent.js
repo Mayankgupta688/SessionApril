@@ -29,9 +29,9 @@ export default function ContentComponent() {
 
             <div>
                 <Switch>
-                    <Route exact path="/" component={Home}></Route>
+                    <Route exact path="/" render={(props) => <Home {...props} userName="asdfajshd" userage="dsjfdjs" />}></Route>
                     <Route exact path="/home/:name/:id/:designation" component={Home}></Route>
-                    <Route exact path="/help/:someid" render={() => <Help userName="asdfajshd" userage="dsjfdjs" />}></Route>
+                    <Route exact path="/help/:someid" render={(props) => <Help {...props} userName="asdfajshd" userage="dsjfdjs" />}></Route>
                     <Route exact path="/about" component={About}></Route>
                 </Switch>
             </div>
